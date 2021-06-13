@@ -11,6 +11,21 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
+  try {
+    const tagData = await Tag.findByPk(req.params.id, {
+      // JOIN with locations, using the Trip through table
+      include: [{ model: Product, through: , as: 'product_category' }]
+    });
+
+    if (!tagData) {
+      res.status(404).json({ message: 'No category found with this id!' });
+      return;
+    }
+
+    res.status(200).json(tagData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.post('/', (req, res) => {
