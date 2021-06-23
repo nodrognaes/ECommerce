@@ -20,7 +20,7 @@ GET/POST/PUT/DELETE Categories:
 
 GET/POST/PUT/DELETE Tags:
 
-![tags](https://user-images.githubusercontent.com/48900910/123181503-6ebe2680-d45b-11eb-99da-e58f42112ccf.gif)![Uploading terminal.gif…]()
+![tags](https://user-images.githubusercontent.com/48900910/123181503-6ebe2680-d45b-11eb-99da-e58f42112ccf.gif)
 
 GET/POST/PUT/DELETE Products:
 
