@@ -9,7 +9,8 @@ router.get('/', async (req, res) => {
   try {
     const categoryData = await Category.findAll({include: [
       {
-        model: Product, attributes: ['product_name']
+        model: Product, 
+        attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
       }
     ]
     });
@@ -23,9 +24,8 @@ router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
-    const tagData = await Tag.findByPk(req.params.id, {
-      // JOIN with locations, using the Trip through table
-      include: [{ model: Product, attributes: ['category_name'] }]
+    const tagData = await Category.findByPk(req.params.id, {
+      include: [{ model: Product, attributes: ['id', 'product_name', 'price', 'stock', 'category_id'] }]
     });
 
     if (!tagData) {
